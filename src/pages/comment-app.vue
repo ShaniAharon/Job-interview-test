@@ -42,11 +42,6 @@
         console.log('running')
         return this.comments
       },
-      // commentsForDisplay() {
-      //   console.log('ri=uning', this.comments)
-      //   this.comments = this.comments
-      //   return this.comments
-      // },
     },
     unmounted() {},
   }
