@@ -1,8 +1,8 @@
 <template>
   <h1>Hi vue</h1>
   <h2>Add new Comment</h2>
-  <input type="text" />
-  <button>Add</button>
+  <input v-model="commentText" type="text" />
+  <button @click="addToRoot">Add</button>
   <comment-list @added="loadComments" :comments="commentsToShow" />
   <pre v-if="comments">{{ comments }}</pre>
 </template>
@@ -19,6 +19,7 @@
     data() {
       return {
         comments: null,
+        commentText: '',
       }
     },
     async created() {
@@ -35,6 +36,12 @@
       async loadComments() {
         console.log('loading')
         this.comments = await itemService.query()
+      },
+      async addToRoot() {
+        const savedItem = await itemService.addCommentToRoot(this.commentText)
+        this.loadComments()
+        console.log('saved', savedItem)
+        this.commentText = ''
       },
     },
     computed: {

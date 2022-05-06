@@ -42,6 +42,7 @@ export const itemService = {
   remove,
   save,
   goDeep,
+  addCommentToRoot,
 }
 
 function getItems() {
@@ -183,6 +184,23 @@ async function addComment(id, txt) {
   // localStorage.setItem(KEY, JSON.stringify(await query()))
   // debugger
   return save(item, comment) // it overwrite the rest of the tree fix it
+  // const cms = await query()
+  // storageService.put(KEY, {...item})
+  // const updated = await save(structuredClone(item))
+  // item.picked = true // can disable the input after comment
+  //
+}
+
+async function addCommentToRoot(txt) {
+  const comment = {
+    key: txt,
+    picked: false,
+    commentText: txt,
+    children: [],
+  }
+  // localStorage.setItem(KEY, JSON.stringify(await query()))
+  // debugger
+  return save(comment) // it overwrite the rest of the tree fix it
   // const cms = await query()
   // storageService.put(KEY, {...item})
   // const updated = await save(structuredClone(item))
