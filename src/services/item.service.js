@@ -106,7 +106,6 @@ function _toggleNodesParent(shouldSetParent = true) {
       const child = parentNode.children[i]
       if (!withs.includes(child.key)) {
         if (!parentNode._id) {
-          // parentNode._id = Math.random().toString().slice(2, 9)
         }
 
         if (shouldSetParent) {

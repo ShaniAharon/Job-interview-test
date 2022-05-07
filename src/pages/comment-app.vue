@@ -35,7 +35,6 @@
       async addToRoot() {
         const savedItem = await itemService.addCommentToRoot(this.commentText)
         this.loadComments()
-
         this.commentText = ''
       },
     },
