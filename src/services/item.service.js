@@ -144,28 +144,17 @@ function getLeafCount() {
   let c = 0
   let p = 0
   function count(node) {
-    // if (node === null) return 0
-
     if (!node.children.length) {
       c++
       if (node.picked) p++
-      // return 1
     }
   }
   _traverse(gItemsTree, count)
-
-  // setTimeout(() => {
-  //   _traverse(gItemsTree, count)
-
-  //
-  //
-  // }, 2000)
 }
 
 function updateComment(key, txt) {
   let item = getItem(key)
   item.commentText = txt
-  // item.picked = true // can disable the input after comment
 }
 
 async function addComment(id, txt) {
@@ -180,14 +169,7 @@ async function addComment(id, txt) {
   }
   item.children.push(comment)
 
-  // localStorage.setItem(KEY, JSON.stringify(await query()))
-  // debugger
   return save(item, comment) // it overwrite the rest of the tree fix it
-  // const cms = await query()
-  // storageService.put(KEY, {...item})
-  // const updated = await save(structuredClone(item))
-  // item.picked = true // can disable the input after comment
-  //
 }
 
 async function addCommentToRoot(txt) {
@@ -197,14 +179,8 @@ async function addCommentToRoot(txt) {
     commentText: txt,
     children: [],
   }
-  // localStorage.setItem(KEY, JSON.stringify(await query()))
-  // debugger
+
   return save(comment) // it overwrite the rest of the tree fix it
-  // const cms = await query()
-  // storageService.put(KEY, {...item})
-  // const updated = await save(structuredClone(item))
-  // item.picked = true // can disable the input after comment
-  //
 }
 
 function simpleStringify(object) {
