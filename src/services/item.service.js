@@ -251,8 +251,6 @@ function nestedLoop(obj) {
         if (Array.isArray(value)) {
           res.push(...value)
           recurse(value)
-          // value.map((item) => {
-          //   item.id = utilService.makeId()
         }
       } else if (value && typeof value === 'object') {
         recurse(value, key)
