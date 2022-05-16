@@ -1,13 +1,13 @@
-import {storageService} from './async-storage.service.js'
+import { storageService } from './async-storage.service.js'
 // import {utilService} from './util.service.js'
 
 const KEY = 'commentDB'
 var gItemsTree
-;(() => {
-  gItemsTree = getInitialItemTree()
-  _toggleNodesParent()
-  _createComments()
-})()
+  ; (() => {
+    gItemsTree = getInitialItemTree()
+    _toggleNodesParent()
+    _createComments()
+  })()
 
 window.test = {
   getItems,
@@ -255,7 +255,6 @@ function nestedLoop(obj) {
       } else if (value && typeof value === 'object') {
         recurse(value, key)
       } else {
-        // Do your stuff here to var value
         // res[key] = value
         res.push(value)
       }
